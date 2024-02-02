@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поставщики</title>
+</head>
+<body>
+
+    <h1>Поставщики</h1>
+
+    <p>
+        <a href="{% url 'home_page' %}">Домашняя страница</a>
+    </p>
+
+    <div>
+        <a href="{% url 'create_supplier_page' %}">Добавить поставщика</a>
+    </div>
+
+    <div>
+
+        {% for supplier in list_sup %}
+
+            <h2>{{ supplier.name }}</h2>
+            <p>Фамилия: {{ supplier.agent_firstname }}</p>
+            <p>Имя: {{ supplier.agent_name }}</p>
+            <p>Отчество: {{ supplier.agent_patronymic }}</p>
+            <h4>Телефон: {{ supplier.agent_telephone }}</h4>
+            <p>Адрес: {{ supplier.address }}</p>
+
+            <p><a href="{% url 'detail_supplier_page' supplier.pk %}">Подробнее</a></p>
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>

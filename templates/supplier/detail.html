@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ supplier }}</title>
+</head>
+<body>
+    <h1>Поставщик {{ supplier.name }}</h1>
+
+    {% for supply in supplier.supply_set.all %}
+        {% for product in supply.product.all %}
+            <h3>{{ product.name }}</h3>
+        {% endfor %}
+
+    {% endfor %}
+
+</body>
+</html>
